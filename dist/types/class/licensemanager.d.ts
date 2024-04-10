@@ -22,10 +22,7 @@ export default class LicenseManager {
                 - for an offline license, LicenseManager parses it to get a list of usable modules
      * @returns a promise resolving to true or false to indicate whether the license was initialized successfully.
     */
-    static initLicense(license: string, immediately?: boolean): void | Promise<{
-        isSuccess: boolean;
-        error: string;
-    }>;
+    static initLicense(license: string, immediately?: boolean): void | Promise<void>;
     /**
      * The following methods should be called before `initLicense`.
      */
