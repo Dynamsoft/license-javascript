@@ -1,6 +1,6 @@
 {
   "name": "dynamsoft-license",
-  "version": "3.0.40",
+  "version": "3.2.10",
   "description": "The Dynamsoft license module provides common auxiliary classes shared across all Dynamsoft SDKs.",
   "homepage": "https://dynamsoft.com/capture-vision/docs/web/programming/javascript/?ver=latest",
   "main": "./dist/license.js",
@@ -37,10 +37,10 @@
     "updateLink:npm": "updateLink --source=npm",
     "updateLink:zip": "updateLink --source=zip",
     "updateLink:github": "updateLink --source=github",
-    "updateCore:prod": "updateImportedPkg --package=dynamsoft-core --no-dev",
-    "updateCore:dev": "updateImportedPkg --package=dynamsoft-core --dev",
-    "easyPublish": "npm run update:dev && npm i @dynamsoft/dynamsoft-core@latest && npm run build && npm publish",
-    "ep-no-core": "npm run update:dev && npm run build && npm publish"
+    "easyPublish": "npm run update:dev && npm i dynamsoft-core@npm:@dynamsoft/dynamsoft-core@latest && npm run build && npm publish",
+    "ep-no-core": "npm run update:dev && npm run build && npm publish",
+    "overridesCore:prod": "npm pkg delete overrides.dynamsoft-core && npm pkg set dependencies.dynamsoft-core=\"^3.2.10\"",
+    "overridesCore:dev": "npm pkg set overrides.dynamsoft-core=$dynamsoft-core && npm pkg set dependencies.dynamsoft-core=npm:@dynamsoft/dynamsoft-core@latest && npm update dynamsoft-core --no-package-lock"
   },
   "repository": {
     "type": "git",
@@ -65,7 +65,7 @@
   ],
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
-    "@dynamsoft/rd2-scripts": "^0.1.8",
+    "@dynamsoft/rd2-scripts": "^0.1.15",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.3",
@@ -80,6 +80,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "dynamsoft-core": "^3.0.30"
-  }
+    "dynamsoft-core": "^3.2.10"
+  },
+  "overrides": {}
 }
